@@ -1,4 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="8" fill="#6366f1"/>
-  <text x="16" y="22" text-anchor="middle" font-size="18" fill="white">⚡</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="AI Play">
+  <defs>
+    <linearGradient id="bg" x1="128" y1="96" x2="896" y2="928" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="0.52" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#22c55e"/>
+    </linearGradient>
+    <linearGradient id="spark" x1="256" y1="260" x2="768" y2="780" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dff7ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="220" fill="#0c0e12"/>
+  <rect x="72" y="72" width="880" height="880" rx="188" fill="url(#bg)"/>
+  <circle cx="760" cy="246" r="74" fill="#ffffff" opacity="0.22"/>
+  <circle cx="238" cy="778" r="96" fill="#0c0e12" opacity="0.16"/>
+  <path d="M291 694 444 318h137l153 376H615l-26-73H435l-26 73H291Zm173-156h96l-48-136-48 136Zm314 156V318h-99v376h99Z" fill="url(#spark)"/>
 </svg>

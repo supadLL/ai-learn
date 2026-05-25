@@ -1,6 +1,6 @@
 {
   "name": "ai-play",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "AI 技术学习平台 - 从入门到深入的系统化学习工具",
   "author": "liangliang",
   "main": "dist-electron/main.js",
