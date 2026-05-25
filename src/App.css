@@ -400,9 +400,14 @@ button {
 .lesson-card,
 .study-panel section,
 .empty-state {
+  min-width: 0;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(21, 25, 34, 0.86);
+}
+
+.lesson-card {
+  overflow: hidden;
 }
 
 .lesson-card--open {
@@ -466,7 +471,14 @@ button {
 }
 
 .lesson-body {
+  min-width: 0;
   padding: 0 18px 18px 60px;
+}
+
+.rich-text {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .rich-text p {
@@ -476,6 +488,7 @@ button {
 }
 
 .code-sample {
+  max-width: 100%;
   margin: 16px 0;
   padding: 14px;
   overflow-x: auto;
@@ -565,6 +578,7 @@ button {
   position: sticky;
   top: 22px;
   display: grid;
+  min-width: 0;
   gap: 16px;
 }
 
@@ -1086,6 +1100,21 @@ button {
   background: #30384b;
 }
 
+@media (max-width: 1240px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .study-panel {
+    position: static;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .rag-assistant {
+    grid-column: 1 / -1;
+  }
+}
+
 @media (max-width: 1080px) {
   .app-shell {
     grid-template-columns: 1fr;
@@ -1100,14 +1129,6 @@ button {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .content-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .study-panel {
-    position: static;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 760px) {
