@@ -55,7 +55,13 @@ jobs:
         with:
           name: ai-play-${{ matrix.platform }}
           path: |
-            release/**
+            release/*.exe
+            release/*.dmg
+            release/*.AppImage
+            release/*.zip
+            release/*.tar.gz
+            release/*.deb
+            release/*.rpm
           if-no-files-found: error
 
   source:
@@ -97,9 +103,43 @@ jobs:
           path: artifacts
           merge-multiple: true
 
+      - name: Create release notes
+        shell: bash
+        run: |
+          cat > release-notes.md <<'EOF'
+          # AI Play __VERSION__
+
+          🚀 AI Play 是一个基于 Electron + React + RAG 的 AI 技术学习桌面应用。本次 Release 会自动附带各平台可下载安装包，以及对应版本的源码压缩包。
+
+          ## 下载说明
+
+          - 🪟 **Windows**：下载 `.exe` 安装包。
+          - 🍎 **macOS**：下载 `.dmg` 安装包。
+          - 🐧 **Linux**：下载 `.AppImage` 包。
+          - 📦 **Source Code**：下载 `source.zip` 或 `source.tar.gz` 查看本次 tag 对应源码。
+
+          ## 当前能力
+
+          - 📚 系统化 AI 学习课程与阶段化学习路径。
+          - 🔎 本地 RAG 知识库检索与引用展示。
+          - 🧠 256 维本地 feature hashing embedding，并支持后续替换为自定义 Embedding API。
+          - 💬 对话式知识助手，支持自定义 LLM API、Responses API 与 Chat Completions API。
+          - 🧩 支持文档导入、知识索引构建、检索自检与运行时检查。
+          - 🖥️ Electron 桌面应用外壳，可跨平台打包使用。
+          EOF
+          sed -i "s/__VERSION__/${GITHUB_REF_NAME}/g" release-notes.md
+
       - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
           draft: false
           prerelease: ${{ contains(github.ref_name, '-') }}
-          files: artifacts/**
+          body_path: release-notes.md
+          files: |
+            artifacts/*.exe
+            artifacts/*.dmg
+            artifacts/*.AppImage
+            artifacts/*.zip
+            artifacts/*.tar.gz
+            artifacts/*.deb
+            artifacts/*.rpm
