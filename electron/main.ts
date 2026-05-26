@@ -87,9 +87,10 @@ if (!gotLock) {
 }
 
 function getAppIcon() {
+  const iconFile = process.platform === 'win32' ? 'icon.ico' : 'icon.png'
   const iconPath = isDev
-    ? path.join(process.cwd(), 'public', 'icon.png')
-    : path.join(__dirname, '../dist/icon.png')
+    ? path.join(process.cwd(), 'public', iconFile)
+    : path.join(__dirname, '../dist', iconFile)
 
   return nativeImage.createFromPath(iconPath)
 }
