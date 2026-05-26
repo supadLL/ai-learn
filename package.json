@@ -1,6 +1,6 @@
 {
   "name": "ai-play",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "AI 技术学习平台 - 从入门到深入的系统化学习工具",
   "author": "liangliang",
   "main": "dist-electron/main.js",
@@ -39,14 +39,40 @@
     "directories": {
       "output": "release"
     },
+    "artifactName": "AI-Play-${version}-${os}-${arch}.${ext}",
     "files": [
       "dist/**/*",
       "dist-electron/**/*"
     ],
     "win": {
-      "target": "nsis",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
       "icon": "public/icon.png",
+      "executableName": "AI Play",
       "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "menuCategory": "AI Play",
+      "shortcutName": "AI Play",
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": false
     },
     "mac": {
       "target": "dmg",

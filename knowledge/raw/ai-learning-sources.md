@@ -41,3 +41,28 @@ Source: https://platform.openai.com/docs/concepts
 Microsoft GraphRAG is useful for advanced RAG architecture: indexing, entity extraction, relationship extraction, community reports, and graph-enhanced retrieval. Treat the docs as a linkable architecture reference unless the documentation license is confirmed.
 
 Source: https://microsoft.github.io/graphrag/index/overview/
+
+## How to Use These Sources in AI Play
+
+AI Play should not bundle large third-party books or documentation pages unless the license clearly allows redistribution. The safer default is to write original summaries, keep links to official sources, and preserve attribution and license notes.
+
+For a beginner-friendly built-in knowledge base, prefer short original notes that answer learning questions directly:
+
+- What problem does this concept solve?
+- What does the simplest working version look like?
+- What are the common mistakes?
+- How does this concept connect to the rest of an AI application?
+- What should a learner practice after reading it?
+
+The internal notes in this directory follow that pattern. They are not copied from the linked sources; they are original AI Play curriculum notes designed to make the app useful even when offline.
+
+## Suggested Expansion Topics
+
+Future knowledge imports can add deeper notes for:
+
+- Neural network basics: tensors, gradients, training loops, overfitting, validation.
+- Transformer internals: attention, positional encoding, pretraining and instruction tuning.
+- Retrieval engineering: BM25, dense retrieval, hybrid search, re-ranking, query rewriting.
+- RAG operations: incremental indexing, document versioning, freshness, permissions, audit logs.
+- Agent operations: tool permissions, sandboxing, durable execution, human approval.
+- Evaluation practice: golden datasets, rubric design, regression testing, online feedback.
