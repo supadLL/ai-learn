@@ -6,6 +6,7 @@
   "main": "dist-electron/main.js",
   "scripts": {
     "dev": "vite",
+    "dev:web": "vite --config vite.web.config.ts",
     "build": "npm run knowledge:build && npm run knowledge:check && npm run retrieval:check && npm run retrieval:runtime-check && tsc && vite build",
     "knowledge:build": "node scripts/build-knowledge-index.mjs",
     "knowledge:check": "node scripts/check-knowledge-index.mjs",
